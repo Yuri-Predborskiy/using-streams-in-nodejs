@@ -12,6 +12,11 @@ module.exports = function(app, db) {
         src.pipe(res);
     });
 
+    app.get('/notes/small', (req, res) => {
+        const src = fs.createReadStream('./small-file.json');
+        src.pipe(res);
+    });
+
     app.post('/notes', (req, res) => {
         console.log(req.body);
         res.send('Hello')
